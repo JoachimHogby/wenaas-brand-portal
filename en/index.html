@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="no">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Wenaas Brand Portal — Designsystem & Merkevareressurser</title>
+  <title>Wenaas Brand Portal — Design System & Brand Assets</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&family=Source+Sans+3:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -117,34 +117,6 @@
       align-items: center;
     }
 
-    /* Language Switcher */
-    .lang-switch {
-      display: flex;
-      gap: 0.25rem;
-      margin-left: 1.5rem;
-      padding-left: 1.5rem;
-      border-left: 1px solid rgba(0, 95, 170, 0.15);
-    }
-
-    .lang-switch a {
-      padding: 0.4rem 0.7rem;
-      font-size: 0.7rem;
-      font-weight: 600;
-      letter-spacing: 0.1em;
-      text-decoration: none;
-      color: var(--slate);
-      transition: all 0.25s ease;
-    }
-
-    .lang-switch a:hover {
-      color: var(--wenaas-blue);
-    }
-
-    .lang-switch a.active {
-      color: var(--wenaas-blue);
-      background: rgba(0, 95, 170, 0.08);
-    }
-
     .nav-link {
       padding: 0.6rem 1.1rem;
       font-size: 0.75rem;
@@ -180,6 +152,34 @@
     .nav-link.active {
       color: var(--wenaas-blue);
       background: rgba(0, 95, 170, 0.06);
+    }
+
+    /* Language Switcher */
+    .lang-switch {
+      display: flex;
+      gap: 0.25rem;
+      margin-left: 1.5rem;
+      padding-left: 1.5rem;
+      border-left: 1px solid rgba(0, 95, 170, 0.15);
+    }
+
+    .lang-switch a {
+      padding: 0.4rem 0.7rem;
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-decoration: none;
+      color: var(--slate);
+      transition: all 0.25s ease;
+    }
+
+    .lang-switch a:hover {
+      color: var(--wenaas-blue);
+    }
+
+    .lang-switch a.active {
+      color: var(--wenaas-blue);
+      background: rgba(0, 95, 170, 0.08);
     }
 
     /* Hero */
@@ -734,7 +734,7 @@
     }
 
     .color-swatch::after {
-      content: 'Klikk for å kopiere';
+      content: 'Click to copy';
       position: absolute;
       top: 50%;
       left: 50%;
@@ -756,7 +756,7 @@
     }
 
     .color-card.copied .color-swatch::after {
-      content: 'Kopiert!';
+      content: 'Copied!';
       background: var(--signal-green);
       color: var(--charcoal);
     }
@@ -1321,19 +1321,19 @@
   <nav class="nav" id="nav">
     <div class="nav-inner">
       <div class="nav-brand">
-        <img src="./assets/logos/Wenaas_horizontal logo_blue_screen.png" alt="Wenaas" class="nav-logo">
+        <img src="../assets/logos/Wenaas_horizontal logo_blue_screen.png" alt="Wenaas" class="nav-logo">
         <div class="nav-divider"></div>
         <span class="nav-title">Brand Portal</span>
       </div>
       <div class="nav-links">
-        <a href="#logoer" class="nav-link">Logoer</a>
-        <a href="#farger" class="nav-link">Farger</a>
-        <a href="#typografi" class="nav-link">Typografi</a>
-        <a href="#designelementer" class="nav-link">Designelementer</a>
-        <a href="#retningslinjer" class="nav-link">Retningslinjer</a>
+        <a href="#logos" class="nav-link">Logos</a>
+        <a href="#colors" class="nav-link">Colors</a>
+        <a href="#typography" class="nav-link">Typography</a>
+        <a href="#design-elements" class="nav-link">Design Elements</a>
+        <a href="#guidelines" class="nav-link">Guidelines</a>
         <div class="lang-switch">
-          <a href="index.html" class="active">NO</a>
-          <a href="en/index.html">EN</a>
+          <a href="../index.html">NO</a>
+          <a href="index.html" class="active">EN</a>
         </div>
       </div>
     </div>
@@ -1342,20 +1342,20 @@
   <!-- Hero -->
   <section class="hero">
     <div class="hero-video-container">
-      <video class="hero-video" autoplay muted loop playsinline poster="./assets/logos/Wenaas_horizontal logo_blue_screen.png">
-        <source src="./assets/video/wenaas-hero-video.mp4" type="video/mp4">
+      <video class="hero-video" autoplay muted loop playsinline poster="../assets/logos/Wenaas_horizontal logo_blue_screen.png">
+        <source src="../assets/video/wenaas-hero-video.mp4" type="video/mp4">
       </video>
     </div>
     <div class="hero-overlay"></div>
 
     <div class="hero-content">
       <div class="hero-badge">
-        <span>Designsystem 2026</span>
+        <span>Design System 2026</span>
       </div>
       <p class="hero-tagline">Protecting People at Work</p>
-      <h1 class="hero-title">Wenaas<br><em>Merkevare&shy;identitet</em></h1>
+      <h1 class="hero-title">Wenaas<br><em>Brand Identity</em></h1>
       <p class="hero-subtitle">
-        Komplett designsystem med logoer, farger, typografi og retningslinjer for konsistent merkevarebygging.
+        Complete design system with logos, colors, typography and guidelines for consistent brand building.
       </p>
     </div>
   </section>
@@ -1365,15 +1365,15 @@
     <div class="stats-inner">
       <div class="stat-item">
         <div class="stat-number">12</div>
-        <div class="stat-label">Logo-varianter</div>
+        <div class="stat-label">Logo Variants</div>
       </div>
       <div class="stat-item">
         <div class="stat-number">9</div>
-        <div class="stat-label">Merkefarger</div>
+        <div class="stat-label">Brand Colors</div>
       </div>
       <div class="stat-item">
         <div class="stat-number">2</div>
-        <div class="stat-label">Skriftfamilier</div>
+        <div class="stat-label">Font Families</div>
       </div>
       <div class="stat-item">
         <div class="stat-number">PNG</div>
@@ -1383,15 +1383,15 @@
   </div>
 
   <!-- Filter -->
-  <div class="filter-section" id="logoer">
+  <div class="filter-section" id="logos">
     <div class="filter-inner">
-      <span class="filter-label">Filtrer etter type</span>
+      <span class="filter-label">Filter by type</span>
       <div class="filter-buttons">
-        <button class="filter-btn active" onclick="filterLogos('all', this)">Alle</button>
+        <button class="filter-btn active" onclick="filterLogos('all', this)">All</button>
         <button class="filter-btn" onclick="filterLogos('symbol', this)">Symbol</button>
-        <button class="filter-btn" onclick="filterLogos('horizontal', this)">Horisontal</button>
-        <button class="filter-btn" onclick="filterLogos('vertical', this)">Vertikal</button>
-        <button class="filter-btn" onclick="filterLogos('name', this)">Navn</button>
+        <button class="filter-btn" onclick="filterLogos('horizontal', this)">Horizontal</button>
+        <button class="filter-btn" onclick="filterLogos('vertical', this)">Vertical</button>
+        <button class="filter-btn" onclick="filterLogos('name', this)">Name</button>
       </div>
     </div>
   </div>
@@ -1401,67 +1401,67 @@
     <div class="section-inner">
       <div class="section-header-left">
         <div>
-          <p class="section-eyebrow">Logo Bibliotek</p>
-          <h2 class="section-title">Offisielle Logoer</h2>
+          <p class="section-eyebrow">Logo Library</p>
+          <h2 class="section-title">Official Logos</h2>
         </div>
-        <span class="section-count" id="logo-count">12 ressurser</span>
+        <span class="section-count" id="logo-count">12 assets</span>
       </div>
 
       <div class="logo-grid" id="logo-grid">
         <!-- SYMBOLS WITH ® -->
         <article class="logo-card" data-type="symbol">
           <div class="card-preview light-bg">
-            <img src="./assets/logos/Wenaas_symbol_blue_R_screen.png" alt="Wenaas W-symbol blå">
+            <img src="../assets/logos/Wenaas_symbol_blue_R_screen.png" alt="Wenaas W-symbol blue">
           </div>
           <div class="card-body">
             <div class="card-tags">
               <span class="tag tag-type">Symbol</span>
-              <span class="tag tag-color blue">Blå</span>
+              <span class="tag tag-color blue">Blue</span>
               <span class="tag tag-registered">®</span>
             </div>
-            <h3 class="card-title">W-Symbol — Primær</h3>
-            <p class="card-description">Offisiell symbollogo med registrert varemerke. Transparent PNG for digital bruk på lyse bakgrunner.</p>
+            <h3 class="card-title">W-Symbol — Primary</h3>
+            <p class="card-description">Official symbol logo with registered trademark. Transparent PNG for digital use on light backgrounds.</p>
             <div class="card-actions">
-              <a href="./assets/logos/Wenaas_symbol_blue_R_screen.png" download class="btn btn-primary">Last ned PNG</a>
-              <a href="./assets/logos/Wenaas_symbol_blue_R_print.pdf" download class="btn btn-secondary">PDF</a>
+              <a href="../assets/logos/Wenaas_symbol_blue_R_screen.png" download class="btn btn-primary">Download PNG</a>
+              <a href="../assets/logos/Wenaas_symbol_blue_R_print.pdf" download class="btn btn-secondary">PDF</a>
             </div>
           </div>
         </article>
 
         <article class="logo-card" data-type="symbol">
           <div class="card-preview light-bg">
-            <img src="./assets/logos/Wenaas_symbol_black_R_screen.png" alt="Wenaas W-symbol svart">
+            <img src="../assets/logos/Wenaas_symbol_black_R_screen.png" alt="Wenaas W-symbol black">
           </div>
           <div class="card-body">
             <div class="card-tags">
               <span class="tag tag-type">Symbol</span>
-              <span class="tag tag-color black">Svart</span>
+              <span class="tag tag-color black">Black</span>
               <span class="tag tag-registered">®</span>
             </div>
-            <h3 class="card-title">W-Symbol — Monokrom</h3>
-            <p class="card-description">Svart versjon for dokumenter og trykk der farge ikke er tilgjengelig. Med registrert varemerke.</p>
+            <h3 class="card-title">W-Symbol — Monochrome</h3>
+            <p class="card-description">Black version for documents and print where color is not available. With registered trademark.</p>
             <div class="card-actions">
-              <a href="./assets/logos/Wenaas_symbol_black_R_screen.png" download class="btn btn-primary">Last ned PNG</a>
-              <a href="./assets/logos/Wenaas_symbol_black_R_print.pdf" download class="btn btn-secondary">PDF</a>
+              <a href="../assets/logos/Wenaas_symbol_black_R_screen.png" download class="btn btn-primary">Download PNG</a>
+              <a href="../assets/logos/Wenaas_symbol_black_R_print.pdf" download class="btn btn-secondary">PDF</a>
             </div>
           </div>
         </article>
 
         <article class="logo-card" data-type="symbol">
           <div class="card-preview dark-bg">
-            <img src="./assets/logos/Wenaas_symbol_white_R_screen.png" alt="Wenaas W-symbol hvit">
+            <img src="../assets/logos/Wenaas_symbol_white_R_screen.png" alt="Wenaas W-symbol white">
           </div>
           <div class="card-body">
             <div class="card-tags">
               <span class="tag tag-type">Symbol</span>
-              <span class="tag tag-color white">Hvit</span>
+              <span class="tag tag-color white">White</span>
               <span class="tag tag-registered">®</span>
             </div>
-            <h3 class="card-title">W-Symbol — Invertert</h3>
-            <p class="card-description">Hvit versjon for mørke bakgrunner, video watermarks og dark mode interfaces.</p>
+            <h3 class="card-title">W-Symbol — Inverted</h3>
+            <p class="card-description">White version for dark backgrounds, video watermarks and dark mode interfaces.</p>
             <div class="card-actions">
-              <a href="./assets/logos/Wenaas_symbol_white_R_screen.png" download class="btn btn-primary">Last ned PNG</a>
-              <a href="./assets/logos/Wenaas_symbol_white_R_print.pdf" download class="btn btn-secondary">PDF</a>
+              <a href="../assets/logos/Wenaas_symbol_white_R_screen.png" download class="btn btn-primary">Download PNG</a>
+              <a href="../assets/logos/Wenaas_symbol_white_R_print.pdf" download class="btn btn-secondary">PDF</a>
             </div>
           </div>
         </article>
@@ -1469,51 +1469,51 @@
         <!-- HORIZONTAL LOGOS -->
         <article class="logo-card" data-type="horizontal">
           <div class="card-preview light-bg">
-            <img src="./assets/logos/Wenaas_horizontal logo_blue_screen.png" alt="Wenaas horisontal logo blå">
+            <img src="../assets/logos/Wenaas_horizontal logo_blue_screen.png" alt="Wenaas horizontal logo blue">
           </div>
           <div class="card-body">
             <div class="card-tags">
-              <span class="tag tag-type">Horisontal</span>
-              <span class="tag tag-color blue">Blå</span>
+              <span class="tag tag-type">Horizontal</span>
+              <span class="tag tag-color blue">Blue</span>
             </div>
-            <h3 class="card-title">Horisontal — Primær</h3>
-            <p class="card-description">Hovedlogo for headers, dokumenthoder og presentasjoner. Symbol + navn i horisontal layout.</p>
+            <h3 class="card-title">Horizontal — Primary</h3>
+            <p class="card-description">Main logo for headers, document headers and presentations. Symbol + name in horizontal layout.</p>
             <div class="card-actions">
-              <a href="./assets/logos/Wenaas_horizontal logo_blue_screen.png" download class="btn btn-primary">Last ned PNG</a>
+              <a href="../assets/logos/Wenaas_horizontal logo_blue_screen.png" download class="btn btn-primary">Download PNG</a>
             </div>
           </div>
         </article>
 
         <article class="logo-card" data-type="horizontal">
           <div class="card-preview light-bg">
-            <img src="./assets/logos/Wenaas_horizontal logo_black_screen.png" alt="Wenaas horisontal logo svart">
+            <img src="../assets/logos/Wenaas_horizontal logo_black_screen.png" alt="Wenaas horizontal logo black">
           </div>
           <div class="card-body">
             <div class="card-tags">
-              <span class="tag tag-type">Horisontal</span>
-              <span class="tag tag-color black">Svart</span>
+              <span class="tag tag-type">Horizontal</span>
+              <span class="tag tag-color black">Black</span>
             </div>
-            <h3 class="card-title">Horisontal — Monokrom</h3>
-            <p class="card-description">Monokrom versjon for svart-hvitt trykk, faks og formelle dokumenter.</p>
+            <h3 class="card-title">Horizontal — Monochrome</h3>
+            <p class="card-description">Monochrome version for black and white print, fax and formal documents.</p>
             <div class="card-actions">
-              <a href="./assets/logos/Wenaas_horizontal logo_black_screen.png" download class="btn btn-primary">Last ned PNG</a>
+              <a href="../assets/logos/Wenaas_horizontal logo_black_screen.png" download class="btn btn-primary">Download PNG</a>
             </div>
           </div>
         </article>
 
         <article class="logo-card" data-type="horizontal">
           <div class="card-preview dark-bg">
-            <img src="./assets/logos/Wenaas_horizontal logo_white_screen.png" alt="Wenaas horisontal logo hvit">
+            <img src="../assets/logos/Wenaas_horizontal logo_white_screen.png" alt="Wenaas horizontal logo white">
           </div>
           <div class="card-body">
             <div class="card-tags">
-              <span class="tag tag-type">Horisontal</span>
-              <span class="tag tag-color white">Hvit</span>
+              <span class="tag tag-type">Horizontal</span>
+              <span class="tag tag-color white">White</span>
             </div>
-            <h3 class="card-title">Horisontal — Invertert</h3>
-            <p class="card-description">For footers på mørke bakgrunner, fargede flater og kampanjemateriell.</p>
+            <h3 class="card-title">Horizontal — Inverted</h3>
+            <p class="card-description">For footers on dark backgrounds, colored surfaces and campaign materials.</p>
             <div class="card-actions">
-              <a href="./assets/logos/Wenaas_horizontal logo_white_screen.png" download class="btn btn-primary">Last ned PNG</a>
+              <a href="../assets/logos/Wenaas_horizontal logo_white_screen.png" download class="btn btn-primary">Download PNG</a>
             </div>
           </div>
         </article>
@@ -1521,51 +1521,51 @@
         <!-- VERTICAL LOGOS -->
         <article class="logo-card" data-type="vertical">
           <div class="card-preview light-bg">
-            <img src="./assets/logos/Wenaas_vertical logo_blue_screen.png" alt="Wenaas vertikal logo blå">
+            <img src="../assets/logos/Wenaas_vertical logo_blue_screen.png" alt="Wenaas vertical logo blue">
           </div>
           <div class="card-body">
             <div class="card-tags">
-              <span class="tag tag-type">Vertikal</span>
-              <span class="tag tag-color blue">Blå</span>
+              <span class="tag tag-type">Vertical</span>
+              <span class="tag tag-color blue">Blue</span>
             </div>
-            <h3 class="card-title">Vertikal — Primær</h3>
-            <p class="card-description">Stablet format for splash screens, app-ikoner og kvadratiske plasseringer.</p>
+            <h3 class="card-title">Vertical — Primary</h3>
+            <p class="card-description">Stacked format for splash screens, app icons and square placements.</p>
             <div class="card-actions">
-              <a href="./assets/logos/Wenaas_vertical logo_blue_screen.png" download class="btn btn-primary">Last ned PNG</a>
+              <a href="../assets/logos/Wenaas_vertical logo_blue_screen.png" download class="btn btn-primary">Download PNG</a>
             </div>
           </div>
         </article>
 
         <article class="logo-card" data-type="vertical">
           <div class="card-preview light-bg">
-            <img src="./assets/logos/Wenaas_vertical logo_black_screen.png" alt="Wenaas vertikal logo svart">
+            <img src="../assets/logos/Wenaas_vertical logo_black_screen.png" alt="Wenaas vertical logo black">
           </div>
           <div class="card-body">
             <div class="card-tags">
-              <span class="tag tag-type">Vertikal</span>
-              <span class="tag tag-color black">Svart</span>
+              <span class="tag tag-type">Vertical</span>
+              <span class="tag tag-color black">Black</span>
             </div>
-            <h3 class="card-title">Vertikal — Monokrom</h3>
-            <p class="card-description">For preging, gravering og ensfarget trykk på produkter og emballasje.</p>
+            <h3 class="card-title">Vertical — Monochrome</h3>
+            <p class="card-description">For embossing, engraving and single-color print on products and packaging.</p>
             <div class="card-actions">
-              <a href="./assets/logos/Wenaas_vertical logo_black_screen.png" download class="btn btn-primary">Last ned PNG</a>
+              <a href="../assets/logos/Wenaas_vertical logo_black_screen.png" download class="btn btn-primary">Download PNG</a>
             </div>
           </div>
         </article>
 
         <article class="logo-card" data-type="vertical">
           <div class="card-preview dark-bg">
-            <img src="./assets/logos/Wenaas_vertical logo_white_screen.png" alt="Wenaas vertikal logo hvit">
+            <img src="../assets/logos/Wenaas_vertical logo_white_screen.png" alt="Wenaas vertical logo white">
           </div>
           <div class="card-body">
             <div class="card-tags">
-              <span class="tag tag-type">Vertikal</span>
-              <span class="tag tag-color white">Hvit</span>
+              <span class="tag tag-type">Vertical</span>
+              <span class="tag tag-color white">White</span>
             </div>
-            <h3 class="card-title">Vertikal — Invertert</h3>
-            <p class="card-description">For mørke splash screens, video-intros og app loading states.</p>
+            <h3 class="card-title">Vertical — Inverted</h3>
+            <p class="card-description">For dark splash screens, video intros and app loading states.</p>
             <div class="card-actions">
-              <a href="./assets/logos/Wenaas_vertical logo_white_screen.png" download class="btn btn-primary">Last ned PNG</a>
+              <a href="../assets/logos/Wenaas_vertical logo_white_screen.png" download class="btn btn-primary">Download PNG</a>
             </div>
           </div>
         </article>
@@ -1573,51 +1573,51 @@
         <!-- NAME ONLY -->
         <article class="logo-card" data-type="name">
           <div class="card-preview light-bg">
-            <img src="./assets/logos/Wenaas_name_blue_screen.png" alt="Wenaas navnetekst blå">
+            <img src="../assets/logos/Wenaas_name_blue_screen.png" alt="Wenaas wordmark blue">
           </div>
           <div class="card-body">
             <div class="card-tags">
-              <span class="tag tag-type">Navn</span>
-              <span class="tag tag-color blue">Blå</span>
+              <span class="tag tag-type">Name</span>
+              <span class="tag tag-color blue">Blue</span>
             </div>
-            <h3 class="card-title">Wordmark — Primær</h3>
-            <p class="card-description">Kun "wenaas" tekst uten symbol. For bruk sammen med symbolet eller i tekst-kontekster.</p>
+            <h3 class="card-title">Wordmark — Primary</h3>
+            <p class="card-description">Only "wenaas" text without symbol. For use together with the symbol or in text contexts.</p>
             <div class="card-actions">
-              <a href="./assets/logos/Wenaas_name_blue_screen.png" download class="btn btn-primary">Last ned PNG</a>
+              <a href="../assets/logos/Wenaas_name_blue_screen.png" download class="btn btn-primary">Download PNG</a>
             </div>
           </div>
         </article>
 
         <article class="logo-card" data-type="name">
           <div class="card-preview light-bg">
-            <img src="./assets/logos/Wenaas_name_black_screen.png" alt="Wenaas navnetekst svart">
+            <img src="../assets/logos/Wenaas_name_black_screen.png" alt="Wenaas wordmark black">
           </div>
           <div class="card-body">
             <div class="card-tags">
-              <span class="tag tag-type">Navn</span>
-              <span class="tag tag-color black">Svart</span>
+              <span class="tag tag-type">Name</span>
+              <span class="tag tag-color black">Black</span>
             </div>
-            <h3 class="card-title">Wordmark — Monokrom</h3>
-            <p class="card-description">Svart navnetekst for ensfarget bruk og kontrast på lyse bakgrunner.</p>
+            <h3 class="card-title">Wordmark — Monochrome</h3>
+            <p class="card-description">Black wordmark for single-color use and contrast on light backgrounds.</p>
             <div class="card-actions">
-              <a href="./assets/logos/Wenaas_name_black_screen.png" download class="btn btn-primary">Last ned PNG</a>
+              <a href="../assets/logos/Wenaas_name_black_screen.png" download class="btn btn-primary">Download PNG</a>
             </div>
           </div>
         </article>
 
         <article class="logo-card" data-type="name">
           <div class="card-preview dark-bg">
-            <img src="./assets/logos/Wenaas_name_white_screen.png" alt="Wenaas navnetekst hvit">
+            <img src="../assets/logos/Wenaas_name_white_screen.png" alt="Wenaas wordmark white">
           </div>
           <div class="card-body">
             <div class="card-tags">
-              <span class="tag tag-type">Navn</span>
-              <span class="tag tag-color white">Hvit</span>
+              <span class="tag tag-type">Name</span>
+              <span class="tag tag-color white">White</span>
             </div>
-            <h3 class="card-title">Wordmark — Invertert</h3>
-            <p class="card-description">Hvit navnetekst for mørke bakgrunner og video credits.</p>
+            <h3 class="card-title">Wordmark — Inverted</h3>
+            <p class="card-description">White wordmark for dark backgrounds and video credits.</p>
             <div class="card-actions">
-              <a href="./assets/logos/Wenaas_name_white_screen.png" download class="btn btn-primary">Last ned PNG</a>
+              <a href="../assets/logos/Wenaas_name_white_screen.png" download class="btn btn-primary">Download PNG</a>
             </div>
           </div>
         </article>
@@ -1626,17 +1626,17 @@
   </section>
 
   <!-- Color Palette Section -->
-  <section class="section section-dark color-palette" id="farger">
+  <section class="section section-dark color-palette" id="colors">
     <div class="section-inner">
       <div class="section-header">
-        <p class="section-eyebrow">Fargepalett</p>
-        <h2 class="section-title">Merkefarger</h2>
-        <p class="section-subtitle">Klikk på en farge for å kopiere HEX-koden til utklippstavlen.</p>
+        <p class="section-eyebrow">Color Palette</p>
+        <h2 class="section-title">Brand Colors</h2>
+        <p class="section-subtitle">Click on a color to copy the HEX code to clipboard.</p>
       </div>
 
       <!-- Primary Colors -->
       <div class="color-group">
-        <h3 class="color-group-title">Primærfarger</h3>
+        <h3 class="color-group-title">Primary Colors</h3>
         <div class="color-grid">
           <div class="color-card" onclick="copyColor('#005FAA', this)">
             <div class="color-swatch" style="background: #005FAA;"></div>
@@ -1663,7 +1663,7 @@
 
       <!-- Support Grays -->
       <div class="color-group">
-        <h3 class="color-group-title">Støttefarger — Grå</h3>
+        <h3 class="color-group-title">Support Colors — Gray</h3>
         <div class="color-grid">
           <div class="color-card" onclick="copyColor('#6A655E', this)">
             <div class="color-swatch" style="background: #6A655E;"></div>
@@ -1700,7 +1700,7 @@
 
       <!-- Signal Colors -->
       <div class="color-group">
-        <h3 class="color-group-title">Signalfarger</h3>
+        <h3 class="color-group-title">Signal Colors</h3>
         <div class="color-grid">
           <div class="color-card" onclick="copyColor('#9FC63B', this)">
             <div class="color-swatch" style="background: #9FC63B;"></div>
@@ -1748,18 +1748,18 @@
   </section>
 
   <!-- Typography Section -->
-  <section class="section typography-section" id="typografi">
+  <section class="section typography-section" id="typography">
     <div class="section-inner">
       <div class="section-header">
-        <p class="section-eyebrow">Typografi</p>
-        <h2 class="section-title">Skriftfamilier</h2>
-        <p class="section-subtitle">To skriftfamilier som sammen skaper Wenaas sin visuelle identitet.</p>
+        <p class="section-eyebrow">Typography</p>
+        <h2 class="section-title">Font Families</h2>
+        <p class="section-subtitle">Two font families that together create Wenaas' visual identity.</p>
       </div>
 
       <div class="typography-grid">
         <!-- Primary Font -->
         <div class="typography-block">
-          <p class="typography-label">Primærskrift</p>
+          <p class="typography-label">Primary Font</p>
           <h3 class="typography-font-name">Noyh</h3>
           <p class="typography-substitute">Web: Poppins · Bold & Regular</p>
 
@@ -1770,35 +1770,35 @@
           </div>
 
           <div class="typography-usage">
-            <p class="usage-label">Bruksområder</p>
+            <p class="usage-label">Usage</p>
             <ul class="usage-list">
-              <li>Overskrifter</li>
+              <li>Headlines</li>
               <li>Taglines</li>
-              <li>Kort tekst</li>
-              <li>Knapper</li>
+              <li>Short text</li>
+              <li>Buttons</li>
             </ul>
           </div>
         </div>
 
         <!-- Secondary Font -->
         <div class="typography-block">
-          <p class="typography-label">Sekundærskrift</p>
+          <p class="typography-label">Secondary Font</p>
           <h3 class="typography-font-name">Helvetica Neue Lt Pro</h3>
           <p class="typography-substitute">Web: Source Sans 3 · Light, Regular, Semibold</p>
 
           <div class="typography-specimen">
-            <p class="specimen-secondary weight-light">Wenaas har siden 1931 utviklet arbeidsklær og verneutstyr som beskytter mennesker på jobb.</p>
-            <p class="specimen-secondary weight-regular">Våre løsninger skal beskytte brukeren, se bra ut, føles bra og skape stolthet.</p>
-            <p class="specimen-secondary weight-semibold">Kvalitet og sikkerhet i fokus hver dag.</p>
+            <p class="specimen-secondary weight-light">Since 1931, Wenaas has developed workwear and protective equipment that protects people at work.</p>
+            <p class="specimen-secondary weight-regular">Our solutions shall protect the user, look good, feel good and create pride.</p>
+            <p class="specimen-secondary weight-semibold">Quality and safety in focus every day.</p>
           </div>
 
           <div class="typography-usage">
-            <p class="usage-label">Bruksområder</p>
+            <p class="usage-label">Usage</p>
             <ul class="usage-list">
-              <li>Brødtekst</li>
-              <li>Beskrivelser</li>
-              <li>UI-elementer</li>
-              <li>Dokumenter</li>
+              <li>Body text</li>
+              <li>Descriptions</li>
+              <li>UI elements</li>
+              <li>Documents</li>
             </ul>
           </div>
         </div>
@@ -1807,12 +1807,12 @@
   </section>
 
   <!-- Design Elements Section -->
-  <section class="section design-elements" id="designelementer">
+  <section class="section design-elements" id="design-elements">
     <div class="section-inner">
       <div class="section-header">
-        <p class="section-eyebrow">Designelementer</p>
-        <h2 class="section-title">W-Profilelement</h2>
-        <p class="section-subtitle">Derivert fra W-symbolet, brukes for å skape gjenkjennelighet og visuell karakter.</p>
+        <p class="section-eyebrow">Design Elements</p>
+        <h2 class="section-title">W Profile Element</h2>
+        <p class="section-subtitle">Derived from the W symbol, used to create recognition and visual character.</p>
       </div>
 
       <div class="element-grid">
@@ -1823,8 +1823,8 @@
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
             </svg>
           </div>
-          <h3 class="element-title">Plassering</h3>
-          <p class="element-description">Alltid nederst til høyre i komposisjonen. Elementet strekker seg ut over kantene for dynamisk effekt.</p>
+          <h3 class="element-title">Positioning</h3>
+          <p class="element-description">Always at the bottom right of the composition. The element extends beyond the edges for dynamic effect.</p>
         </div>
 
         <div class="element-card">
@@ -1833,8 +1833,8 @@
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01" />
             </svg>
           </div>
-          <h3 class="element-title">Visning</h3>
-          <p class="element-description">Hvit outline eller 65% transparent hvit fyll. Kan også brukes som bilderamme eller highlight.</p>
+          <h3 class="element-title">Display</h3>
+          <p class="element-description">White outline or 65% transparent white fill. Can also be used as image frame or highlight.</p>
         </div>
 
         <div class="element-card">
@@ -1843,20 +1843,20 @@
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18.364 18.364A9 9 0 005.636 5.636m12.728 12.728A9 9 0 015.636 5.636m12.728 12.728L5.636 5.636" />
             </svg>
           </div>
-          <h3 class="element-title">Begrensninger</h3>
-          <p class="element-description">Aldri speil, roter eller vri elementet. Behold alltid originalens proporsjoner og orientering.</p>
+          <h3 class="element-title">Restrictions</h3>
+          <p class="element-description">Never mirror, rotate or twist the element. Always maintain the original proportions and orientation.</p>
         </div>
       </div>
     </div>
   </section>
 
   <!-- Guidelines Section -->
-  <section class="section guidelines-section" id="retningslinjer">
+  <section class="section guidelines-section" id="guidelines">
     <div class="section-inner">
       <div class="section-header">
-        <p class="section-eyebrow">Retningslinjer</p>
-        <h2 class="section-title">Korrekt Bruk</h2>
-        <p class="section-subtitle">Følg disse reglene for å sikre konsistent og profesjonell merkevarebygging.</p>
+        <p class="section-eyebrow">Guidelines</p>
+        <h2 class="section-title">Correct Usage</h2>
+        <p class="section-subtitle">Follow these rules to ensure consistent and professional brand building.</p>
       </div>
 
       <div class="guidelines-grid">
@@ -1866,22 +1866,22 @@
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4" />
             </svg>
-            Minimumsstørrelser
+            Minimum Sizes
           </h3>
           <div class="size-specs">
             <div class="size-spec">
               <div class="size-visual">
-                <img src="./assets/logos/Wenaas_symbol_blue_R_screen.png" alt="Symbol" style="width: 40px;">
+                <img src="../assets/logos/Wenaas_symbol_blue_R_screen.png" alt="Symbol" style="width: 40px;">
               </div>
               <div class="size-value">40px</div>
-              <div class="size-label">Symbol (skjerm) / 10mm (print)</div>
+              <div class="size-label">Symbol (screen) / 10mm (print)</div>
             </div>
             <div class="size-spec">
               <div class="size-visual">
-                <img src="./assets/logos/Wenaas_horizontal logo_blue_screen.png" alt="Full logo" style="width: 80px;">
+                <img src="../assets/logos/Wenaas_horizontal logo_blue_screen.png" alt="Full logo" style="width: 80px;">
               </div>
               <div class="size-value">62px</div>
-              <div class="size-label">Full logo (skjerm) / 15mm (print)</div>
+              <div class="size-label">Full logo (screen) / 15mm (print)</div>
             </div>
           </div>
         </div>
@@ -1892,7 +1892,7 @@
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
             </svg>
-            Beskyttet Sone
+            Protected Space
           </h3>
           <div class="spacing-diagram">
             <div class="spacing-x" style="position: absolute; top: 1rem; left: 50%; transform: translateX(-50%);">
@@ -1900,7 +1900,7 @@
               <span class="spacing-marker">X</span>
               <div class="spacing-line"></div>
             </div>
-            <img src="./assets/logos/Wenaas_horizontal logo_blue_screen.png" alt="Logo med beskyttet sone">
+            <img src="../assets/logos/Wenaas_horizontal logo_blue_screen.png" alt="Logo with protected space">
             <div class="spacing-x" style="position: absolute; bottom: 1rem; left: 50%; transform: translateX(-50%);">
               <div class="spacing-line"></div>
               <span class="spacing-marker">X</span>
@@ -1909,7 +1909,7 @@
             <div class="spacing-marker" style="left: 1rem; top: 50%; transform: translateY(-50%);">X</div>
             <div class="spacing-marker" style="right: 1rem; top: 50%; transform: translateY(-50%);">X</div>
           </div>
-          <p style="text-align: center; font-size: 0.85rem; color: var(--slate); margin-top: 1rem;">X = høyden på W-symbolet</p>
+          <p style="text-align: center; font-size: 0.85rem; color: var(--slate); margin-top: 1rem;">X = height of the W symbol</p>
         </div>
       </div>
 
@@ -1920,32 +1920,32 @@
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
             </svg>
-            Gjør dette
+            Do this
           </h3>
           <ul class="dos-donts-list">
             <li>
               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
               </svg>
-              Bruk godkjente fargevarianter (blå, svart, hvit)
+              Use approved color variants (blue, black, white)
             </li>
             <li>
               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
               </svg>
-              Behold logoens proporsjoner ved skalering
+              Maintain logo proportions when scaling
             </li>
             <li>
               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
               </svg>
-              Respekter beskyttet sone rundt logoen
+              Respect protected space around the logo
             </li>
             <li>
               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
               </svg>
-              Bruk ® versjon for ekstern kommunikasjon
+              Use ® version for external communication
             </li>
           </ul>
         </div>
@@ -1955,32 +1955,32 @@
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z" />
             </svg>
-            Unngå dette
+            Avoid this
           </h3>
           <ul class="dos-donts-list">
             <li>
               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
               </svg>
-              Strekk eller vri logoen ut av proporsjoner
+              Stretch or distort the logo out of proportion
             </li>
             <li>
               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
               </svg>
-              Endre logoens farger eller gradienter
+              Change the logo colors or gradients
             </li>
             <li>
               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
               </svg>
-              Legg til skygger, konturer eller effekter
+              Add shadows, outlines or effects
             </li>
             <li>
               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
               </svg>
-              Plasser logoen på travle bakgrunner
+              Place the logo on busy backgrounds
             </li>
           </ul>
         </div>
@@ -1992,11 +1992,11 @@
   <footer class="footer">
     <div class="footer-inner">
       <div class="footer-brand">
-        <img src="./assets/logos/Wenaas_horizontal logo_white_screen.png" alt="Wenaas" class="footer-logo">
+        <img src="../assets/logos/Wenaas_horizontal logo_white_screen.png" alt="Wenaas" class="footer-logo">
         <span class="footer-text">Brand Portal</span>
       </div>
       <div class="footer-legal">
-        © 2026 Wenaas Workwear AS. Alle rettigheter reservert.
+        © 2026 Wenaas Workwear AS. All rights reserved.
       </div>
     </div>
   </footer>
@@ -2057,14 +2057,14 @@
         }
       });
 
-      countEl.textContent = `${visibleCount} ressurs${visibleCount !== 1 ? 'er' : ''}`;
+      countEl.textContent = `${visibleCount} asset${visibleCount !== 1 ? 's' : ''}`;
     }
 
     // Copy color to clipboard
     function copyColor(hex, element) {
       navigator.clipboard.writeText(hex).then(() => {
         element.classList.add('copied');
-        showToast(`${hex} kopiert til utklippstavlen`, 'success');
+        showToast(`${hex} copied to clipboard`, 'success');
         setTimeout(() => {
           element.classList.remove('copied');
         }, 2000);
