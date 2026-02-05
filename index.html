@@ -1,0 +1,2071 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Wenaas Brand Portal — Designsystem & Merkevareressurser</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&family=Source+Sans+3:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --wenaas-blue: #005FAA;
+      --wenaas-blue-dark: #003555;
+      --wenaas-blue-light: #0077CC;
+      --cream: #FAFAF8;
+      --charcoal: #1A1A1A;
+      --slate: #64748B;
+      --warm-gray: #F5F4F2;
+      --gray-100: #6A655E;
+      --gray-60: #9F9A95;
+      --gray-30: #CCC9C6;
+      --signal-green: #9FC63B;
+      --signal-orange: #F07E26;
+      --signal-yellow: #FFEE00;
+      --signal-red: #E5231B;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Source Sans 3', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--cream);
+      color: var(--charcoal);
+      font-weight: 400;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    .display-font {
+      font-family: 'Poppins', sans-serif;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+      font-weight: 700;
+    }
+
+    /* Sticky Navigation */
+    .nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      background: rgba(250, 250, 248, 0.85);
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
+      border-bottom: 1px solid rgba(0, 95, 170, 0.08);
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .nav.scrolled {
+      background: rgba(255, 255, 255, 0.95);
+      box-shadow: 0 4px 40px rgba(0, 53, 85, 0.08);
+    }
+
+    .nav-inner {
+      max-width: 1600px;
+      margin: 0 auto;
+      padding: 1rem 3rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .nav-brand {
+      display: flex;
+      align-items: center;
+      gap: 1.25rem;
+    }
+
+    .nav-logo {
+      height: 38px;
+      width: auto;
+      transition: transform 0.3s ease;
+    }
+
+    .nav-logo:hover {
+      transform: scale(1.03);
+    }
+
+    .nav-divider {
+      width: 1px;
+      height: 28px;
+      background: linear-gradient(180deg, transparent, var(--wenaas-blue), transparent);
+      opacity: 0.4;
+    }
+
+    .nav-title {
+      font-family: 'Poppins', sans-serif;
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--wenaas-blue);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 0.25rem;
+    }
+
+    .nav-link {
+      padding: 0.6rem 1.1rem;
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.05em;
+      color: var(--charcoal);
+      text-decoration: none;
+      border-radius: 4px;
+      transition: all 0.25s ease;
+      position: relative;
+    }
+
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: 4px;
+      left: 50%;
+      width: 0;
+      height: 2px;
+      background: var(--wenaas-blue);
+      transition: all 0.3s ease;
+      transform: translateX(-50%);
+    }
+
+    .nav-link:hover {
+      color: var(--wenaas-blue);
+    }
+
+    .nav-link:hover::after {
+      width: calc(100% - 2.2rem);
+    }
+
+    .nav-link.active {
+      color: var(--wenaas-blue);
+      background: rgba(0, 95, 170, 0.06);
+    }
+
+    /* Hero */
+    .hero {
+      min-height: 85vh;
+      position: relative;
+      display: flex;
+      align-items: center;
+      padding: 10rem 3rem 6rem;
+      overflow: hidden;
+    }
+
+    .hero-video-container {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+    }
+
+    .hero-video {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      pointer-events: none;
+    }
+
+    .hero-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(135deg, rgba(0, 95, 170, 0.92) 0%, rgba(0, 53, 85, 0.88) 50%, rgba(0, 95, 170, 0.9) 100%);
+      z-index: 1;
+    }
+
+    .hero::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+      opacity: 0.04;
+      z-index: 2;
+      pointer-events: none;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 10;
+      max-width: 1600px;
+      margin: 0 auto;
+      width: 100%;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      padding: 0.55rem 1.1rem;
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 50px;
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, 0.9);
+      margin-bottom: 2rem;
+      backdrop-filter: blur(10px);
+      animation: fadeInUp 0.8s ease forwards;
+    }
+
+    .hero-badge::before {
+      content: '';
+      width: 7px;
+      height: 7px;
+      background: var(--signal-green);
+      border-radius: 50%;
+      animation: pulse 2s ease infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.5; transform: scale(1.3); }
+    }
+
+    .hero-tagline {
+      font-family: 'Poppins', sans-serif;
+      font-size: clamp(0.85rem, 1.5vw, 1rem);
+      font-weight: 600;
+      color: rgba(255, 255, 255, 0.6);
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      margin-bottom: 1rem;
+      animation: fadeInUp 0.8s 0.05s ease forwards;
+      opacity: 0;
+    }
+
+    .hero-title {
+      font-family: 'Poppins', sans-serif;
+      font-size: clamp(3.5rem, 10vw, 7.5rem);
+      font-weight: 800;
+      color: white;
+      line-height: 0.92;
+      margin-bottom: 1.5rem;
+      animation: fadeInUp 0.8s 0.1s ease forwards;
+      opacity: 0;
+      text-transform: uppercase;
+      letter-spacing: -0.02em;
+    }
+
+    .hero-title em {
+      font-style: normal;
+      color: rgba(255, 255, 255, 0.5);
+      font-weight: 600;
+    }
+
+    .hero-subtitle {
+      font-size: 1.15rem;
+      font-weight: 300;
+      color: rgba(255, 255, 255, 0.7);
+      max-width: 560px;
+      line-height: 1.8;
+      animation: fadeInUp 0.8s 0.2s ease forwards;
+      opacity: 0;
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Stats Bar */
+    .stats-bar {
+      background: white;
+      border-bottom: 1px solid rgba(0, 95, 170, 0.08);
+      padding: 2rem 3rem;
+    }
+
+    .stats-inner {
+      max-width: 1600px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 3rem;
+    }
+
+    .stat-item {
+      text-align: center;
+    }
+
+    .stat-number {
+      font-family: 'Poppins', sans-serif;
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: var(--wenaas-blue);
+      line-height: 1;
+    }
+
+    .stat-label {
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--slate);
+      margin-top: 0.5rem;
+    }
+
+    /* Section Styles */
+    .section {
+      padding: 6rem 3rem;
+    }
+
+    .section-dark {
+      background: var(--charcoal);
+      color: white;
+    }
+
+    .section-dark .section-title {
+      color: white;
+    }
+
+    .section-dark .section-subtitle {
+      color: rgba(255, 255, 255, 0.6);
+    }
+
+    .section-inner {
+      max-width: 1600px;
+      margin: 0 auto;
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 4rem;
+    }
+
+    .section-header-left {
+      text-align: left;
+      margin-bottom: 3rem;
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+    }
+
+    .section-eyebrow {
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--wenaas-blue);
+      margin-bottom: 1rem;
+    }
+
+    .section-dark .section-eyebrow {
+      color: var(--signal-green);
+    }
+
+    .section-title {
+      font-family: 'Poppins', sans-serif;
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 700;
+      color: var(--charcoal);
+      margin-bottom: 1rem;
+      text-transform: uppercase;
+      letter-spacing: -0.01em;
+    }
+
+    .section-subtitle {
+      font-size: 1.05rem;
+      color: var(--slate);
+      max-width: 640px;
+      margin: 0 auto;
+      font-weight: 300;
+    }
+
+    .section-count {
+      font-size: 0.75rem;
+      font-weight: 500;
+      color: var(--slate);
+      letter-spacing: 0.1em;
+    }
+
+    /* Filter */
+    .filter-section {
+      padding: 2rem 3rem;
+      background: var(--cream);
+      border-bottom: 1px solid rgba(0, 95, 170, 0.06);
+      position: sticky;
+      top: 70px;
+      z-index: 50;
+    }
+
+    .filter-inner {
+      max-width: 1600px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+    }
+
+    .filter-label {
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--slate);
+    }
+
+    .filter-buttons {
+      display: flex;
+      gap: 0.5rem;
+    }
+
+    .filter-btn {
+      padding: 0.75rem 1.5rem;
+      font-size: 0.8rem;
+      font-weight: 500;
+      font-family: inherit;
+      letter-spacing: 0.05em;
+      border: none;
+      border-radius: 0;
+      background: transparent;
+      color: var(--charcoal);
+      cursor: pointer;
+      transition: all 0.3s ease;
+      position: relative;
+    }
+
+    .filter-btn::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      width: 0;
+      height: 2px;
+      background: var(--wenaas-blue);
+      transition: all 0.3s ease;
+      transform: translateX(-50%);
+    }
+
+    .filter-btn:hover::after {
+      width: 100%;
+    }
+
+    .filter-btn.active {
+      color: var(--wenaas-blue);
+      font-weight: 600;
+    }
+
+    .filter-btn.active::after {
+      width: 100%;
+    }
+
+    /* Logo Grid */
+    .logo-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+      gap: 2rem;
+    }
+
+    .logo-card {
+      background: white;
+      border: 1px solid rgba(0, 95, 170, 0.06);
+      overflow: hidden;
+      transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+      position: relative;
+      opacity: 0;
+      transform: translateY(20px);
+      animation: cardFadeIn 0.6s ease forwards;
+    }
+
+    .logo-card:nth-child(1) { animation-delay: 0.1s; }
+    .logo-card:nth-child(2) { animation-delay: 0.15s; }
+    .logo-card:nth-child(3) { animation-delay: 0.2s; }
+    .logo-card:nth-child(4) { animation-delay: 0.25s; }
+    .logo-card:nth-child(5) { animation-delay: 0.3s; }
+    .logo-card:nth-child(6) { animation-delay: 0.35s; }
+    .logo-card:nth-child(7) { animation-delay: 0.4s; }
+    .logo-card:nth-child(8) { animation-delay: 0.45s; }
+    .logo-card:nth-child(9) { animation-delay: 0.5s; }
+    .logo-card:nth-child(10) { animation-delay: 0.55s; }
+    .logo-card:nth-child(11) { animation-delay: 0.6s; }
+    .logo-card:nth-child(12) { animation-delay: 0.65s; }
+
+    @keyframes cardFadeIn {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .logo-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 25px 50px -12px rgba(0, 95, 170, 0.18), 0 0 0 1px rgba(0, 95, 170, 0.1);
+    }
+
+    .card-preview {
+      height: 220px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2.5rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card-preview.light-bg {
+      background: linear-gradient(90deg, rgba(0, 95, 170, 0.02) 1px, transparent 1px), linear-gradient(rgba(0, 95, 170, 0.02) 1px, transparent 1px);
+      background-size: 20px 20px;
+      background-color: #fafafa;
+    }
+
+    .card-preview.dark-bg {
+      background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+    }
+
+    .card-preview img {
+      max-height: 100%;
+      max-width: 100%;
+      object-fit: contain;
+      transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .logo-card:hover .card-preview img {
+      transform: scale(1.05);
+    }
+
+    .card-body {
+      padding: 1.75rem;
+      border-top: 1px solid rgba(0, 95, 170, 0.06);
+    }
+
+    .card-tags {
+      display: flex;
+      gap: 0.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .tag {
+      padding: 0.35rem 0.75rem;
+      font-size: 0.65rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      border-radius: 0;
+    }
+
+    .tag-type {
+      background: var(--wenaas-blue);
+      color: white;
+    }
+
+    .tag-color {
+      background: var(--warm-gray);
+      color: var(--charcoal);
+    }
+
+    .tag-color.blue { background: #dbeafe; color: #1e40af; }
+    .tag-color.black { background: #1f2937; color: white; }
+    .tag-color.white { background: #f1f5f9; color: #475569; border: 1px solid #e2e8f0; }
+
+    .tag-registered {
+      background: #fef3c7;
+      color: #92400e;
+    }
+
+    .card-title {
+      font-family: 'Poppins', sans-serif;
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--charcoal);
+      margin-bottom: 0.5rem;
+    }
+
+    .card-description {
+      font-size: 0.85rem;
+      color: var(--slate);
+      line-height: 1.6;
+      margin-bottom: 1.5rem;
+    }
+
+    .card-actions {
+      display: flex;
+      gap: 0.75rem;
+    }
+
+    .btn {
+      flex: 1;
+      padding: 0.9rem 1.5rem;
+      font-size: 0.75rem;
+      font-weight: 600;
+      font-family: inherit;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      text-decoration: none;
+      text-align: center;
+      border: none;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .btn-primary {
+      background: var(--wenaas-blue);
+      color: white;
+    }
+
+    .btn-primary:hover {
+      background: var(--wenaas-blue-dark);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0, 95, 170, 0.3);
+    }
+
+    .btn-secondary {
+      background: transparent;
+      color: var(--charcoal);
+      border: 1px solid rgba(0, 95, 170, 0.2);
+    }
+
+    .btn-secondary:hover {
+      background: var(--wenaas-blue);
+      color: white;
+      border-color: var(--wenaas-blue);
+    }
+
+    /* Color Palette Section */
+    .color-palette {
+      background: var(--charcoal);
+    }
+
+    .color-group {
+      margin-bottom: 4rem;
+    }
+
+    .color-group:last-child {
+      margin-bottom: 0;
+    }
+
+    .color-group-title {
+      font-family: 'Poppins', sans-serif;
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, 0.5);
+      margin-bottom: 1.5rem;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .color-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .color-card {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      overflow: hidden;
+      cursor: pointer;
+      transition: all 0.4s ease;
+    }
+
+    .color-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(255, 255, 255, 0.2);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    }
+
+    .color-swatch {
+      height: 140px;
+      position: relative;
+      display: flex;
+      align-items: flex-end;
+      padding: 1rem;
+    }
+
+    .color-swatch::after {
+      content: 'Klikk for å kopiere';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: white;
+      background: rgba(0, 0, 0, 0.6);
+      padding: 0.5rem 1rem;
+      border-radius: 4px;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .color-card:hover .color-swatch::after {
+      opacity: 1;
+    }
+
+    .color-card.copied .color-swatch::after {
+      content: 'Kopiert!';
+      background: var(--signal-green);
+      color: var(--charcoal);
+    }
+
+    .color-info {
+      padding: 1.25rem;
+    }
+
+    .color-name {
+      font-family: 'Poppins', sans-serif;
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: white;
+      margin-bottom: 0.5rem;
+    }
+
+    .color-codes {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+    }
+
+    .color-code {
+      font-size: 0.75rem;
+      font-family: 'SF Mono', Monaco, monospace;
+      color: rgba(255, 255, 255, 0.6);
+    }
+
+    .color-code strong {
+      color: rgba(255, 255, 255, 0.4);
+      font-weight: 500;
+      margin-right: 0.25rem;
+    }
+
+    /* Typography Section */
+    .typography-section {
+      background: white;
+    }
+
+    .typography-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 4rem;
+    }
+
+    .typography-block {
+      padding: 3rem;
+      background: var(--cream);
+      border: 1px solid rgba(0, 95, 170, 0.06);
+    }
+
+    .typography-label {
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--wenaas-blue);
+      margin-bottom: 0.75rem;
+    }
+
+    .typography-font-name {
+      font-family: 'Poppins', sans-serif;
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--charcoal);
+      margin-bottom: 0.5rem;
+    }
+
+    .typography-substitute {
+      font-size: 0.85rem;
+      color: var(--slate);
+      margin-bottom: 2rem;
+    }
+
+    .typography-specimen {
+      margin-bottom: 2rem;
+    }
+
+    .specimen-primary {
+      font-family: 'Poppins', sans-serif;
+      font-weight: 700;
+      text-transform: uppercase;
+      line-height: 1.1;
+    }
+
+    .specimen-primary.size-xl {
+      font-size: 3.5rem;
+      color: var(--wenaas-blue);
+      margin-bottom: 1rem;
+    }
+
+    .specimen-primary.size-lg {
+      font-size: 2rem;
+      color: var(--charcoal);
+      margin-bottom: 0.75rem;
+    }
+
+    .specimen-primary.size-md {
+      font-size: 1.25rem;
+      color: var(--gray-100);
+    }
+
+    .specimen-secondary {
+      font-family: 'Source Sans 3', sans-serif;
+      line-height: 1.7;
+    }
+
+    .specimen-secondary.weight-light {
+      font-weight: 300;
+      font-size: 1.1rem;
+      color: var(--charcoal);
+      margin-bottom: 1rem;
+    }
+
+    .specimen-secondary.weight-regular {
+      font-weight: 400;
+      font-size: 1rem;
+      color: var(--slate);
+      margin-bottom: 1rem;
+    }
+
+    .specimen-secondary.weight-semibold {
+      font-weight: 600;
+      font-size: 0.9rem;
+      color: var(--charcoal);
+      letter-spacing: 0.02em;
+    }
+
+    .typography-usage {
+      padding-top: 1.5rem;
+      border-top: 1px solid rgba(0, 95, 170, 0.1);
+    }
+
+    .usage-label {
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--slate);
+      margin-bottom: 0.75rem;
+    }
+
+    .usage-list {
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    .usage-list li {
+      font-size: 0.8rem;
+      padding: 0.4rem 0.8rem;
+      background: white;
+      color: var(--charcoal);
+      border: 1px solid rgba(0, 95, 170, 0.1);
+    }
+
+    /* Design Elements Section */
+    .design-elements {
+      background: linear-gradient(135deg, var(--wenaas-blue) 0%, var(--wenaas-blue-dark) 100%);
+      color: white;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .design-elements::before {
+      content: '';
+      position: absolute;
+      bottom: -20%;
+      right: -10%;
+      width: 60%;
+      height: 80%;
+      background: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill='none' stroke='rgba(255,255,255,0.1)' stroke-width='2' d='M100,10 L190,50 L190,150 L100,190 L10,150 L10,50 Z'/%3E%3C/svg%3E") no-repeat center;
+      background-size: contain;
+      opacity: 0.3;
+      pointer-events: none;
+    }
+
+    .design-elements .section-eyebrow {
+      color: rgba(255, 255, 255, 0.6);
+    }
+
+    .design-elements .section-title {
+      color: white;
+    }
+
+    .design-elements .section-subtitle {
+      color: rgba(255, 255, 255, 0.7);
+    }
+
+    .element-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    .element-card {
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      padding: 2rem;
+      backdrop-filter: blur(10px);
+      transition: all 0.4s ease;
+    }
+
+    .element-card:hover {
+      background: rgba(255, 255, 255, 0.12);
+      transform: translateY(-4px);
+    }
+
+    .element-icon {
+      width: 56px;
+      height: 56px;
+      background: rgba(255, 255, 255, 0.15);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1.5rem;
+    }
+
+    .element-icon svg {
+      width: 28px;
+      height: 28px;
+      color: white;
+    }
+
+    .element-title {
+      font-family: 'Poppins', sans-serif;
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin-bottom: 0.75rem;
+    }
+
+    .element-description {
+      font-size: 0.9rem;
+      color: rgba(255, 255, 255, 0.7);
+      line-height: 1.7;
+    }
+
+    /* Guidelines Section */
+    .guidelines-section {
+      background: var(--cream);
+    }
+
+    .guidelines-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      margin-bottom: 4rem;
+    }
+
+    .guideline-block {
+      background: white;
+      border: 1px solid rgba(0, 95, 170, 0.06);
+      padding: 2.5rem;
+    }
+
+    .guideline-title {
+      font-family: 'Poppins', sans-serif;
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--charcoal);
+      margin-bottom: 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .guideline-title svg {
+      width: 24px;
+      height: 24px;
+      color: var(--wenaas-blue);
+    }
+
+    .size-specs {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.5rem;
+    }
+
+    .size-spec {
+      text-align: center;
+      padding: 1.5rem;
+      background: var(--cream);
+      border: 1px solid rgba(0, 95, 170, 0.06);
+    }
+
+    .size-visual {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1rem;
+      height: 80px;
+    }
+
+    .size-visual img {
+      max-height: 100%;
+      max-width: 100%;
+    }
+
+    .size-value {
+      font-family: 'Poppins', sans-serif;
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--wenaas-blue);
+      margin-bottom: 0.25rem;
+    }
+
+    .size-label {
+      font-size: 0.75rem;
+      color: var(--slate);
+      letter-spacing: 0.05em;
+    }
+
+    .spacing-diagram {
+      background: var(--cream);
+      padding: 3rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+
+    .spacing-diagram img {
+      max-width: 200px;
+    }
+
+    .spacing-marker {
+      position: absolute;
+      font-size: 0.7rem;
+      font-weight: 600;
+      color: var(--wenaas-blue);
+      letter-spacing: 0.1em;
+    }
+
+    .spacing-x {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .spacing-line {
+      height: 1px;
+      width: 40px;
+      background: var(--wenaas-blue);
+    }
+
+    /* Do's and Don'ts */
+    .dos-donts {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2rem;
+    }
+
+    .dos-donts-column h3 {
+      font-family: 'Poppins', sans-serif;
+      font-size: 1rem;
+      font-weight: 600;
+      margin-bottom: 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .dos-donts-column.dos h3 {
+      color: var(--signal-green);
+    }
+
+    .dos-donts-column.donts h3 {
+      color: var(--signal-red);
+    }
+
+    .dos-donts-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+
+    .dos-donts-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+      font-size: 0.9rem;
+      color: var(--charcoal);
+      padding: 1rem;
+      background: white;
+      border: 1px solid rgba(0, 95, 170, 0.06);
+    }
+
+    .dos-donts-list li svg {
+      width: 20px;
+      height: 20px;
+      flex-shrink: 0;
+      margin-top: 0.1rem;
+    }
+
+    .dos .dos-donts-list li svg {
+      color: var(--signal-green);
+    }
+
+    .donts .dos-donts-list li svg {
+      color: var(--signal-red);
+    }
+
+    /* Footer */
+    .footer {
+      background: var(--charcoal);
+      padding: 4rem 3rem;
+    }
+
+    .footer-inner {
+      max-width: 1600px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .footer-brand {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+    }
+
+    .footer-logo {
+      height: 36px;
+      opacity: 0.9;
+    }
+
+    .footer-text {
+      font-size: 0.8rem;
+      color: rgba(255, 255, 255, 0.5);
+    }
+
+    .footer-legal {
+      font-size: 0.75rem;
+      color: rgba(255, 255, 255, 0.4);
+      letter-spacing: 0.05em;
+    }
+
+    /* Toast Notification */
+    .toast {
+      position: fixed;
+      bottom: 2rem;
+      right: 2rem;
+      background: var(--charcoal);
+      color: white;
+      padding: 1rem 1.5rem;
+      border-radius: 4px;
+      font-size: 0.85rem;
+      font-weight: 500;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+      transform: translateY(100px);
+      opacity: 0;
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      z-index: 9999;
+    }
+
+    .toast.show {
+      transform: translateY(0);
+      opacity: 1;
+    }
+
+    .toast.success {
+      background: var(--signal-green);
+      color: var(--charcoal);
+    }
+
+    /* Responsive */
+    @media (max-width: 1200px) {
+      .typography-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .element-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 1024px) {
+      .nav-links {
+        display: none;
+      }
+
+      .stats-inner {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2rem;
+      }
+
+      .guidelines-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .dos-donts {
+        grid-template-columns: 1fr;
+      }
+
+      .logo-grid {
+        grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      }
+
+      .element-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .nav-inner {
+        padding: 1rem 1.5rem;
+      }
+
+      .hero {
+        padding: 8rem 1.5rem 4rem;
+        min-height: auto;
+      }
+
+      .hero-title {
+        font-size: 2.5rem;
+      }
+
+      .section {
+        padding: 4rem 1.5rem;
+      }
+
+      .stats-bar, .filter-section {
+        padding-left: 1.5rem;
+        padding-right: 1.5rem;
+      }
+
+      .filter-buttons {
+        flex-wrap: wrap;
+      }
+
+      .logo-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .color-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .size-specs {
+        grid-template-columns: 1fr;
+      }
+
+      .footer-inner {
+        flex-direction: column;
+        gap: 2rem;
+        text-align: center;
+      }
+
+      .specimen-primary.size-xl {
+        font-size: 2.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="nav" id="nav">
+    <div class="nav-inner">
+      <div class="nav-brand">
+        <img src="./assets/logos/Wenaas_horizontal logo_blue_screen.png" alt="Wenaas" class="nav-logo">
+        <div class="nav-divider"></div>
+        <span class="nav-title">Brand Portal</span>
+      </div>
+      <div class="nav-links">
+        <a href="#logoer" class="nav-link">Logoer</a>
+        <a href="#farger" class="nav-link">Farger</a>
+        <a href="#typografi" class="nav-link">Typografi</a>
+        <a href="#designelementer" class="nav-link">Designelementer</a>
+        <a href="#retningslinjer" class="nav-link">Retningslinjer</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero-video-container">
+      <video class="hero-video" autoplay muted loop playsinline poster="./assets/logos/Wenaas_horizontal logo_blue_screen.png">
+        <source src="./assets/video/wenaas-hero-video.mp4" type="video/mp4">
+      </video>
+    </div>
+    <div class="hero-overlay"></div>
+
+    <div class="hero-content">
+      <div class="hero-badge">
+        <span>Designsystem 2026</span>
+      </div>
+      <p class="hero-tagline">Protecting People at Work</p>
+      <h1 class="hero-title">Wenaas<br><em>Merkevare&shy;identitet</em></h1>
+      <p class="hero-subtitle">
+        Komplett designsystem med logoer, farger, typografi og retningslinjer for konsistent merkevarebygging.
+      </p>
+    </div>
+  </section>
+
+  <!-- Stats Bar -->
+  <div class="stats-bar">
+    <div class="stats-inner">
+      <div class="stat-item">
+        <div class="stat-number">12</div>
+        <div class="stat-label">Logo-varianter</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number">9</div>
+        <div class="stat-label">Merkefarger</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number">2</div>
+        <div class="stat-label">Skriftfamilier</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number">PNG</div>
+        <div class="stat-label">& PDF Format</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Filter -->
+  <div class="filter-section" id="logoer">
+    <div class="filter-inner">
+      <span class="filter-label">Filtrer etter type</span>
+      <div class="filter-buttons">
+        <button class="filter-btn active" onclick="filterLogos('all', this)">Alle</button>
+        <button class="filter-btn" onclick="filterLogos('symbol', this)">Symbol</button>
+        <button class="filter-btn" onclick="filterLogos('horizontal', this)">Horisontal</button>
+        <button class="filter-btn" onclick="filterLogos('vertical', this)">Vertikal</button>
+        <button class="filter-btn" onclick="filterLogos('name', this)">Navn</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Logo Grid -->
+  <section class="section">
+    <div class="section-inner">
+      <div class="section-header-left">
+        <div>
+          <p class="section-eyebrow">Logo Bibliotek</p>
+          <h2 class="section-title">Offisielle Logoer</h2>
+        </div>
+        <span class="section-count" id="logo-count">12 ressurser</span>
+      </div>
+
+      <div class="logo-grid" id="logo-grid">
+        <!-- SYMBOLS WITH ® -->
+        <article class="logo-card" data-type="symbol">
+          <div class="card-preview light-bg">
+            <img src="./assets/logos/Wenaas_symbol_blue_R_screen.png" alt="Wenaas W-symbol blå">
+          </div>
+          <div class="card-body">
+            <div class="card-tags">
+              <span class="tag tag-type">Symbol</span>
+              <span class="tag tag-color blue">Blå</span>
+              <span class="tag tag-registered">®</span>
+            </div>
+            <h3 class="card-title">W-Symbol — Primær</h3>
+            <p class="card-description">Offisiell symbollogo med registrert varemerke. Transparent PNG for digital bruk på lyse bakgrunner.</p>
+            <div class="card-actions">
+              <a href="./assets/logos/Wenaas_symbol_blue_R_screen.png" download class="btn btn-primary">Last ned PNG</a>
+              <a href="./assets/logos/Wenaas_symbol_blue_R_print.pdf" download class="btn btn-secondary">PDF</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="logo-card" data-type="symbol">
+          <div class="card-preview light-bg">
+            <img src="./assets/logos/Wenaas_symbol_black_R_screen.png" alt="Wenaas W-symbol svart">
+          </div>
+          <div class="card-body">
+            <div class="card-tags">
+              <span class="tag tag-type">Symbol</span>
+              <span class="tag tag-color black">Svart</span>
+              <span class="tag tag-registered">®</span>
+            </div>
+            <h3 class="card-title">W-Symbol — Monokrom</h3>
+            <p class="card-description">Svart versjon for dokumenter og trykk der farge ikke er tilgjengelig. Med registrert varemerke.</p>
+            <div class="card-actions">
+              <a href="./assets/logos/Wenaas_symbol_black_R_screen.png" download class="btn btn-primary">Last ned PNG</a>
+              <a href="./assets/logos/Wenaas_symbol_black_R_print.pdf" download class="btn btn-secondary">PDF</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="logo-card" data-type="symbol">
+          <div class="card-preview dark-bg">
+            <img src="./assets/logos/Wenaas_symbol_white_R_screen.png" alt="Wenaas W-symbol hvit">
+          </div>
+          <div class="card-body">
+            <div class="card-tags">
+              <span class="tag tag-type">Symbol</span>
+              <span class="tag tag-color white">Hvit</span>
+              <span class="tag tag-registered">®</span>
+            </div>
+            <h3 class="card-title">W-Symbol — Invertert</h3>
+            <p class="card-description">Hvit versjon for mørke bakgrunner, video watermarks og dark mode interfaces.</p>
+            <div class="card-actions">
+              <a href="./assets/logos/Wenaas_symbol_white_R_screen.png" download class="btn btn-primary">Last ned PNG</a>
+              <a href="./assets/logos/Wenaas_symbol_white_R_print.pdf" download class="btn btn-secondary">PDF</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- HORIZONTAL LOGOS -->
+        <article class="logo-card" data-type="horizontal">
+          <div class="card-preview light-bg">
+            <img src="./assets/logos/Wenaas_horizontal logo_blue_screen.png" alt="Wenaas horisontal logo blå">
+          </div>
+          <div class="card-body">
+            <div class="card-tags">
+              <span class="tag tag-type">Horisontal</span>
+              <span class="tag tag-color blue">Blå</span>
+            </div>
+            <h3 class="card-title">Horisontal — Primær</h3>
+            <p class="card-description">Hovedlogo for headers, dokumenthoder og presentasjoner. Symbol + navn i horisontal layout.</p>
+            <div class="card-actions">
+              <a href="./assets/logos/Wenaas_horizontal logo_blue_screen.png" download class="btn btn-primary">Last ned PNG</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="logo-card" data-type="horizontal">
+          <div class="card-preview light-bg">
+            <img src="./assets/logos/Wenaas_horizontal logo_black_screen.png" alt="Wenaas horisontal logo svart">
+          </div>
+          <div class="card-body">
+            <div class="card-tags">
+              <span class="tag tag-type">Horisontal</span>
+              <span class="tag tag-color black">Svart</span>
+            </div>
+            <h3 class="card-title">Horisontal — Monokrom</h3>
+            <p class="card-description">Monokrom versjon for svart-hvitt trykk, faks og formelle dokumenter.</p>
+            <div class="card-actions">
+              <a href="./assets/logos/Wenaas_horizontal logo_black_screen.png" download class="btn btn-primary">Last ned PNG</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="logo-card" data-type="horizontal">
+          <div class="card-preview dark-bg">
+            <img src="./assets/logos/Wenaas_horizontal logo_white_screen.png" alt="Wenaas horisontal logo hvit">
+          </div>
+          <div class="card-body">
+            <div class="card-tags">
+              <span class="tag tag-type">Horisontal</span>
+              <span class="tag tag-color white">Hvit</span>
+            </div>
+            <h3 class="card-title">Horisontal — Invertert</h3>
+            <p class="card-description">For footers på mørke bakgrunner, fargede flater og kampanjemateriell.</p>
+            <div class="card-actions">
+              <a href="./assets/logos/Wenaas_horizontal logo_white_screen.png" download class="btn btn-primary">Last ned PNG</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- VERTICAL LOGOS -->
+        <article class="logo-card" data-type="vertical">
+          <div class="card-preview light-bg">
+            <img src="./assets/logos/Wenaas_vertical logo_blue_screen.png" alt="Wenaas vertikal logo blå">
+          </div>
+          <div class="card-body">
+            <div class="card-tags">
+              <span class="tag tag-type">Vertikal</span>
+              <span class="tag tag-color blue">Blå</span>
+            </div>
+            <h3 class="card-title">Vertikal — Primær</h3>
+            <p class="card-description">Stablet format for splash screens, app-ikoner og kvadratiske plasseringer.</p>
+            <div class="card-actions">
+              <a href="./assets/logos/Wenaas_vertical logo_blue_screen.png" download class="btn btn-primary">Last ned PNG</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="logo-card" data-type="vertical">
+          <div class="card-preview light-bg">
+            <img src="./assets/logos/Wenaas_vertical logo_black_screen.png" alt="Wenaas vertikal logo svart">
+          </div>
+          <div class="card-body">
+            <div class="card-tags">
+              <span class="tag tag-type">Vertikal</span>
+              <span class="tag tag-color black">Svart</span>
+            </div>
+            <h3 class="card-title">Vertikal — Monokrom</h3>
+            <p class="card-description">For preging, gravering og ensfarget trykk på produkter og emballasje.</p>
+            <div class="card-actions">
+              <a href="./assets/logos/Wenaas_vertical logo_black_screen.png" download class="btn btn-primary">Last ned PNG</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="logo-card" data-type="vertical">
+          <div class="card-preview dark-bg">
+            <img src="./assets/logos/Wenaas_vertical logo_white_screen.png" alt="Wenaas vertikal logo hvit">
+          </div>
+          <div class="card-body">
+            <div class="card-tags">
+              <span class="tag tag-type">Vertikal</span>
+              <span class="tag tag-color white">Hvit</span>
+            </div>
+            <h3 class="card-title">Vertikal — Invertert</h3>
+            <p class="card-description">For mørke splash screens, video-intros og app loading states.</p>
+            <div class="card-actions">
+              <a href="./assets/logos/Wenaas_vertical logo_white_screen.png" download class="btn btn-primary">Last ned PNG</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- NAME ONLY -->
+        <article class="logo-card" data-type="name">
+          <div class="card-preview light-bg">
+            <img src="./assets/logos/Wenaas_name_blue_screen.png" alt="Wenaas navnetekst blå">
+          </div>
+          <div class="card-body">
+            <div class="card-tags">
+              <span class="tag tag-type">Navn</span>
+              <span class="tag tag-color blue">Blå</span>
+            </div>
+            <h3 class="card-title">Wordmark — Primær</h3>
+            <p class="card-description">Kun "wenaas" tekst uten symbol. For bruk sammen med symbolet eller i tekst-kontekster.</p>
+            <div class="card-actions">
+              <a href="./assets/logos/Wenaas_name_blue_screen.png" download class="btn btn-primary">Last ned PNG</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="logo-card" data-type="name">
+          <div class="card-preview light-bg">
+            <img src="./assets/logos/Wenaas_name_black_screen.png" alt="Wenaas navnetekst svart">
+          </div>
+          <div class="card-body">
+            <div class="card-tags">
+              <span class="tag tag-type">Navn</span>
+              <span class="tag tag-color black">Svart</span>
+            </div>
+            <h3 class="card-title">Wordmark — Monokrom</h3>
+            <p class="card-description">Svart navnetekst for ensfarget bruk og kontrast på lyse bakgrunner.</p>
+            <div class="card-actions">
+              <a href="./assets/logos/Wenaas_name_black_screen.png" download class="btn btn-primary">Last ned PNG</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="logo-card" data-type="name">
+          <div class="card-preview dark-bg">
+            <img src="./assets/logos/Wenaas_name_white_screen.png" alt="Wenaas navnetekst hvit">
+          </div>
+          <div class="card-body">
+            <div class="card-tags">
+              <span class="tag tag-type">Navn</span>
+              <span class="tag tag-color white">Hvit</span>
+            </div>
+            <h3 class="card-title">Wordmark — Invertert</h3>
+            <p class="card-description">Hvit navnetekst for mørke bakgrunner og video credits.</p>
+            <div class="card-actions">
+              <a href="./assets/logos/Wenaas_name_white_screen.png" download class="btn btn-primary">Last ned PNG</a>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Color Palette Section -->
+  <section class="section section-dark color-palette" id="farger">
+    <div class="section-inner">
+      <div class="section-header">
+        <p class="section-eyebrow">Fargepalett</p>
+        <h2 class="section-title">Merkefarger</h2>
+        <p class="section-subtitle">Klikk på en farge for å kopiere HEX-koden til utklippstavlen.</p>
+      </div>
+
+      <!-- Primary Colors -->
+      <div class="color-group">
+        <h3 class="color-group-title">Primærfarger</h3>
+        <div class="color-grid">
+          <div class="color-card" onclick="copyColor('#005FAA', this)">
+            <div class="color-swatch" style="background: #005FAA;"></div>
+            <div class="color-info">
+              <div class="color-name">Wenaas Blue</div>
+              <div class="color-codes">
+                <span class="color-code"><strong>HEX</strong>#005FAA</span>
+                <span class="color-code"><strong>PMS</strong>293C</span>
+              </div>
+            </div>
+          </div>
+          <div class="color-card" onclick="copyColor('#003555', this)">
+            <div class="color-swatch" style="background: #003555;"></div>
+            <div class="color-info">
+              <div class="color-name">Dark Blue</div>
+              <div class="color-codes">
+                <span class="color-code"><strong>HEX</strong>#003555</span>
+                <span class="color-code"><strong>PMS</strong>296</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Support Grays -->
+      <div class="color-group">
+        <h3 class="color-group-title">Støttefarger — Grå</h3>
+        <div class="color-grid">
+          <div class="color-card" onclick="copyColor('#6A655E', this)">
+            <div class="color-swatch" style="background: #6A655E;"></div>
+            <div class="color-info">
+              <div class="color-name">Gray 100%</div>
+              <div class="color-codes">
+                <span class="color-code"><strong>HEX</strong>#6A655E</span>
+                <span class="color-code"><strong>PMS</strong>495C</span>
+              </div>
+            </div>
+          </div>
+          <div class="color-card" onclick="copyColor('#9F9A95', this)">
+            <div class="color-swatch" style="background: #9F9A95;"></div>
+            <div class="color-info">
+              <div class="color-name">Gray 60%</div>
+              <div class="color-codes">
+                <span class="color-code"><strong>HEX</strong>#9F9A95</span>
+                <span class="color-code"><strong>PMS</strong>402C</span>
+              </div>
+            </div>
+          </div>
+          <div class="color-card" onclick="copyColor('#CCC9C6', this)">
+            <div class="color-swatch" style="background: #CCC9C6;"></div>
+            <div class="color-info">
+              <div class="color-name">Gray 30%</div>
+              <div class="color-codes">
+                <span class="color-code"><strong>HEX</strong>#CCC9C6</span>
+                <span class="color-code"><strong>PMS</strong>400C</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Signal Colors -->
+      <div class="color-group">
+        <h3 class="color-group-title">Signalfarger</h3>
+        <div class="color-grid">
+          <div class="color-card" onclick="copyColor('#9FC63B', this)">
+            <div class="color-swatch" style="background: #9FC63B;"></div>
+            <div class="color-info">
+              <div class="color-name">Signal Green</div>
+              <div class="color-codes">
+                <span class="color-code"><strong>HEX</strong>#9FC63B</span>
+                <span class="color-code"><strong>PMS</strong>375C</span>
+              </div>
+            </div>
+          </div>
+          <div class="color-card" onclick="copyColor('#F07E26', this)">
+            <div class="color-swatch" style="background: #F07E26;"></div>
+            <div class="color-info">
+              <div class="color-name">Signal Orange</div>
+              <div class="color-codes">
+                <span class="color-code"><strong>HEX</strong>#F07E26</span>
+                <span class="color-code"><strong>PMS</strong>1505C</span>
+              </div>
+            </div>
+          </div>
+          <div class="color-card" onclick="copyColor('#FFEE00', this)">
+            <div class="color-swatch" style="background: #FFEE00;"></div>
+            <div class="color-info">
+              <div class="color-name">Signal Yellow</div>
+              <div class="color-codes">
+                <span class="color-code"><strong>HEX</strong>#FFEE00</span>
+                <span class="color-code"><strong>PMS</strong>102C</span>
+              </div>
+            </div>
+          </div>
+          <div class="color-card" onclick="copyColor('#E5231B', this)">
+            <div class="color-swatch" style="background: #E5231B;"></div>
+            <div class="color-info">
+              <div class="color-name">Signal Red</div>
+              <div class="color-codes">
+                <span class="color-code"><strong>HEX</strong>#E5231B</span>
+                <span class="color-code"><strong>PMS</strong>485C</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Typography Section -->
+  <section class="section typography-section" id="typografi">
+    <div class="section-inner">
+      <div class="section-header">
+        <p class="section-eyebrow">Typografi</p>
+        <h2 class="section-title">Skriftfamilier</h2>
+        <p class="section-subtitle">To skriftfamilier som sammen skaper Wenaas sin visuelle identitet.</p>
+      </div>
+
+      <div class="typography-grid">
+        <!-- Primary Font -->
+        <div class="typography-block">
+          <p class="typography-label">Primærskrift</p>
+          <h3 class="typography-font-name">Noyh</h3>
+          <p class="typography-substitute">Web: Poppins · Bold & Regular</p>
+
+          <div class="typography-specimen">
+            <p class="specimen-primary size-xl">Protecting</p>
+            <p class="specimen-primary size-lg">People at Work</p>
+            <p class="specimen-primary size-md">Since 1931</p>
+          </div>
+
+          <div class="typography-usage">
+            <p class="usage-label">Bruksområder</p>
+            <ul class="usage-list">
+              <li>Overskrifter</li>
+              <li>Taglines</li>
+              <li>Kort tekst</li>
+              <li>Knapper</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Secondary Font -->
+        <div class="typography-block">
+          <p class="typography-label">Sekundærskrift</p>
+          <h3 class="typography-font-name">Helvetica Neue Lt Pro</h3>
+          <p class="typography-substitute">Web: Source Sans 3 · Light, Regular, Semibold</p>
+
+          <div class="typography-specimen">
+            <p class="specimen-secondary weight-light">Wenaas har siden 1931 utviklet arbeidsklær og verneutstyr som beskytter mennesker på jobb.</p>
+            <p class="specimen-secondary weight-regular">Våre løsninger skal beskytte brukeren, se bra ut, føles bra og skape stolthet.</p>
+            <p class="specimen-secondary weight-semibold">Kvalitet og sikkerhet i fokus hver dag.</p>
+          </div>
+
+          <div class="typography-usage">
+            <p class="usage-label">Bruksområder</p>
+            <ul class="usage-list">
+              <li>Brødtekst</li>
+              <li>Beskrivelser</li>
+              <li>UI-elementer</li>
+              <li>Dokumenter</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Design Elements Section -->
+  <section class="section design-elements" id="designelementer">
+    <div class="section-inner">
+      <div class="section-header">
+        <p class="section-eyebrow">Designelementer</p>
+        <h2 class="section-title">W-Profilelement</h2>
+        <p class="section-subtitle">Derivert fra W-symbolet, brukes for å skape gjenkjennelighet og visuell karakter.</p>
+      </div>
+
+      <div class="element-grid">
+        <div class="element-card">
+          <div class="element-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+            </svg>
+          </div>
+          <h3 class="element-title">Plassering</h3>
+          <p class="element-description">Alltid nederst til høyre i komposisjonen. Elementet strekker seg ut over kantene for dynamisk effekt.</p>
+        </div>
+
+        <div class="element-card">
+          <div class="element-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01" />
+            </svg>
+          </div>
+          <h3 class="element-title">Visning</h3>
+          <p class="element-description">Hvit outline eller 65% transparent hvit fyll. Kan også brukes som bilderamme eller highlight.</p>
+        </div>
+
+        <div class="element-card">
+          <div class="element-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18.364 18.364A9 9 0 005.636 5.636m12.728 12.728A9 9 0 015.636 5.636m12.728 12.728L5.636 5.636" />
+            </svg>
+          </div>
+          <h3 class="element-title">Begrensninger</h3>
+          <p class="element-description">Aldri speil, roter eller vri elementet. Behold alltid originalens proporsjoner og orientering.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Guidelines Section -->
+  <section class="section guidelines-section" id="retningslinjer">
+    <div class="section-inner">
+      <div class="section-header">
+        <p class="section-eyebrow">Retningslinjer</p>
+        <h2 class="section-title">Korrekt Bruk</h2>
+        <p class="section-subtitle">Følg disse reglene for å sikre konsistent og profesjonell merkevarebygging.</p>
+      </div>
+
+      <div class="guidelines-grid">
+        <!-- Minimum Sizes -->
+        <div class="guideline-block">
+          <h3 class="guideline-title">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4" />
+            </svg>
+            Minimumsstørrelser
+          </h3>
+          <div class="size-specs">
+            <div class="size-spec">
+              <div class="size-visual">
+                <img src="./assets/logos/Wenaas_symbol_blue_R_screen.png" alt="Symbol" style="width: 40px;">
+              </div>
+              <div class="size-value">40px</div>
+              <div class="size-label">Symbol (skjerm) / 10mm (print)</div>
+            </div>
+            <div class="size-spec">
+              <div class="size-visual">
+                <img src="./assets/logos/Wenaas_horizontal logo_blue_screen.png" alt="Full logo" style="width: 80px;">
+              </div>
+              <div class="size-value">62px</div>
+              <div class="size-label">Full logo (skjerm) / 15mm (print)</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Protected Space -->
+        <div class="guideline-block">
+          <h3 class="guideline-title">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+            </svg>
+            Beskyttet Sone
+          </h3>
+          <div class="spacing-diagram">
+            <div class="spacing-x" style="position: absolute; top: 1rem; left: 50%; transform: translateX(-50%);">
+              <div class="spacing-line"></div>
+              <span class="spacing-marker">X</span>
+              <div class="spacing-line"></div>
+            </div>
+            <img src="./assets/logos/Wenaas_horizontal logo_blue_screen.png" alt="Logo med beskyttet sone">
+            <div class="spacing-x" style="position: absolute; bottom: 1rem; left: 50%; transform: translateX(-50%);">
+              <div class="spacing-line"></div>
+              <span class="spacing-marker">X</span>
+              <div class="spacing-line"></div>
+            </div>
+            <div class="spacing-marker" style="left: 1rem; top: 50%; transform: translateY(-50%);">X</div>
+            <div class="spacing-marker" style="right: 1rem; top: 50%; transform: translateY(-50%);">X</div>
+          </div>
+          <p style="text-align: center; font-size: 0.85rem; color: var(--slate); margin-top: 1rem;">X = høyden på W-symbolet</p>
+        </div>
+      </div>
+
+      <!-- Do's and Don'ts -->
+      <div class="dos-donts">
+        <div class="dos-donts-column dos">
+          <h3>
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+            Gjør dette
+          </h3>
+          <ul class="dos-donts-list">
+            <li>
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+              </svg>
+              Bruk godkjente fargevarianter (blå, svart, hvit)
+            </li>
+            <li>
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+              </svg>
+              Behold logoens proporsjoner ved skalering
+            </li>
+            <li>
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+              </svg>
+              Respekter beskyttet sone rundt logoen
+            </li>
+            <li>
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+              </svg>
+              Bruk ® versjon for ekstern kommunikasjon
+            </li>
+          </ul>
+        </div>
+
+        <div class="dos-donts-column donts">
+          <h3>
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+            Unngå dette
+          </h3>
+          <ul class="dos-donts-list">
+            <li>
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+              </svg>
+              Strekk eller vri logoen ut av proporsjoner
+            </li>
+            <li>
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+              </svg>
+              Endre logoens farger eller gradienter
+            </li>
+            <li>
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+              </svg>
+              Legg til skygger, konturer eller effekter
+            </li>
+            <li>
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+              </svg>
+              Plasser logoen på travle bakgrunner
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <img src="./assets/logos/Wenaas_horizontal logo_white_screen.png" alt="Wenaas" class="footer-logo">
+        <span class="footer-text">Brand Portal</span>
+      </div>
+      <div class="footer-legal">
+        © 2026 Wenaas Workwear AS. Alle rettigheter reservert.
+      </div>
+    </div>
+  </footer>
+
+  <!-- Toast -->
+  <div class="toast" id="toast"></div>
+
+  <script>
+    // Navigation scroll effect
+    const nav = document.getElementById('nav');
+    const sections = document.querySelectorAll('section[id], .filter-section');
+    const navLinks = document.querySelectorAll('.nav-link');
+
+    window.addEventListener('scroll', () => {
+      // Header effect
+      if (window.scrollY > 50) {
+        nav.classList.add('scrolled');
+      } else {
+        nav.classList.remove('scrolled');
+      }
+
+      // Active section highlighting
+      let current = '';
+      sections.forEach(section => {
+        const sectionTop = section.offsetTop - 100;
+        if (window.scrollY >= sectionTop) {
+          current = section.getAttribute('id');
+        }
+      });
+
+      navLinks.forEach(link => {
+        link.classList.remove('active');
+        if (link.getAttribute('href') === '#' + current) {
+          link.classList.add('active');
+        }
+      });
+    });
+
+    // Filter functionality
+    function filterLogos(type, btn) {
+      const cards = document.querySelectorAll('.logo-card');
+      const buttons = document.querySelectorAll('.filter-btn');
+      const countEl = document.getElementById('logo-count');
+
+      buttons.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+
+      let visibleCount = 0;
+      cards.forEach((card, index) => {
+        if (type === 'all' || card.dataset.type === type) {
+          card.style.display = 'block';
+          card.style.animation = 'none';
+          card.offsetHeight;
+          card.style.animation = `cardFadeIn 0.6s ${index * 0.05}s ease forwards`;
+          visibleCount++;
+        } else {
+          card.style.display = 'none';
+        }
+      });
+
+      countEl.textContent = `${visibleCount} ressurs${visibleCount !== 1 ? 'er' : ''}`;
+    }
+
+    // Copy color to clipboard
+    function copyColor(hex, element) {
+      navigator.clipboard.writeText(hex).then(() => {
+        element.classList.add('copied');
+        showToast(`${hex} kopiert til utklippstavlen`, 'success');
+        setTimeout(() => {
+          element.classList.remove('copied');
+        }, 2000);
+      });
+    }
+
+    // Toast notification
+    function showToast(message, type = 'default') {
+      const toast = document.getElementById('toast');
+      toast.textContent = message;
+      toast.className = 'toast show';
+      if (type === 'success') {
+        toast.classList.add('success');
+      }
+      setTimeout(() => {
+        toast.classList.remove('show');
+      }, 3000);
+    }
+
+    // Smooth scroll for nav links
+    document.querySelectorAll('.nav-link').forEach(link => {
+      link.addEventListener('click', (e) => {
+        e.preventDefault();
+        const targetId = link.getAttribute('href');
+        const targetElement = document.querySelector(targetId);
+        if (targetElement) {
+          const offsetTop = targetElement.offsetTop - 80;
+          window.scrollTo({
+            top: offsetTop,
+            behavior: 'smooth'
+          });
+        }
+      });
+    });
+  </script>
+</body>
+</html>
