@@ -539,6 +539,8 @@
     .logo-card:nth-child(10) { animation-delay: 0.55s; }
     .logo-card:nth-child(11) { animation-delay: 0.6s; }
     .logo-card:nth-child(12) { animation-delay: 0.65s; }
+    .logo-card:nth-child(13) { animation-delay: 0.7s; }
+    .logo-card:nth-child(14) { animation-delay: 0.75s; }
 
     @keyframes cardFadeIn {
       to {
@@ -1392,6 +1394,7 @@
         <button class="filter-btn" onclick="filterLogos('horizontal', this)">Horisontal</button>
         <button class="filter-btn" onclick="filterLogos('vertical', this)">Vertikal</button>
         <button class="filter-btn" onclick="filterLogos('name', this)">Navn</button>
+        <button class="filter-btn" onclick="filterLogos('wenaas-id', this)">Wenaas ID</button>
       </div>
     </div>
   </div>
@@ -1404,7 +1407,7 @@
           <p class="section-eyebrow">Logo Bibliotek</p>
           <h2 class="section-title">Offisielle Logoer</h2>
         </div>
-        <span class="section-count" id="logo-count">12 ressurser</span>
+        <span class="section-count" id="logo-count">14 ressurser</span>
       </div>
 
       <div class="logo-grid" id="logo-grid">
@@ -1618,6 +1621,41 @@
             <p class="card-description">Hvit navnetekst for mørke bakgrunner og video credits.</p>
             <div class="card-actions">
               <a href="./assets/logos/Wenaas_name_white_screen.png" download class="btn btn-primary">Last ned PNG</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- WENAAS ID SUB-BRAND -->
+        <article class="logo-card" data-type="wenaas-id">
+          <div class="card-preview light-bg">
+            <img src="./assets/logos/WenaasID_horizontal_black_screen.png" alt="Wenaas ID logo sort">
+          </div>
+          <div class="card-body">
+            <div class="card-tags">
+              <span class="tag tag-type">Wenaas ID</span>
+              <span class="tag tag-color black">Sort</span>
+            </div>
+            <h3 class="card-title">Wenaas ID — Monokrom</h3>
+            <p class="card-description">Sort horisontal sub-brand logo for lyse bakgrunner. Inkluderer ® og skillelinje.</p>
+            <div class="card-actions">
+              <a href="./assets/logos/WenaasID_horizontal_black_screen.png" download class="btn btn-primary">Last ned PNG</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="logo-card" data-type="wenaas-id">
+          <div class="card-preview dark-bg">
+            <img src="./assets/logos/WenaasID_horizontal_white_screen.png" alt="Wenaas ID logo hvit">
+          </div>
+          <div class="card-body">
+            <div class="card-tags">
+              <span class="tag tag-type">Wenaas ID</span>
+              <span class="tag tag-color white">Hvit</span>
+            </div>
+            <h3 class="card-title">Wenaas ID — Invertert</h3>
+            <p class="card-description">Hvit horisontal sub-brand logo for mørke bakgrunner. Inkluderer ® og skillelinje.</p>
+            <div class="card-actions">
+              <a href="./assets/logos/WenaasID_horizontal_white_screen.png" download class="btn btn-primary">Last ned PNG</a>
             </div>
           </div>
         </article>

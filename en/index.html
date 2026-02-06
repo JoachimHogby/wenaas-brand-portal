@@ -539,6 +539,8 @@
     .logo-card:nth-child(10) { animation-delay: 0.55s; }
     .logo-card:nth-child(11) { animation-delay: 0.6s; }
     .logo-card:nth-child(12) { animation-delay: 0.65s; }
+    .logo-card:nth-child(13) { animation-delay: 0.7s; }
+    .logo-card:nth-child(14) { animation-delay: 0.75s; }
 
     @keyframes cardFadeIn {
       to {
@@ -1392,6 +1394,7 @@
         <button class="filter-btn" onclick="filterLogos('horizontal', this)">Horizontal</button>
         <button class="filter-btn" onclick="filterLogos('vertical', this)">Vertical</button>
         <button class="filter-btn" onclick="filterLogos('name', this)">Name</button>
+        <button class="filter-btn" onclick="filterLogos('wenaas-id', this)">Wenaas ID</button>
       </div>
     </div>
   </div>
@@ -1404,7 +1407,7 @@
           <p class="section-eyebrow">Logo Library</p>
           <h2 class="section-title">Official Logos</h2>
         </div>
-        <span class="section-count" id="logo-count">12 assets</span>
+        <span class="section-count" id="logo-count">14 assets</span>
       </div>
 
       <div class="logo-grid" id="logo-grid">
@@ -1618,6 +1621,41 @@
             <p class="card-description">White wordmark for dark backgrounds and video credits.</p>
             <div class="card-actions">
               <a href="../assets/logos/Wenaas_name_white_screen.png" download class="btn btn-primary">Download PNG</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- WENAAS ID SUB-BRAND -->
+        <article class="logo-card" data-type="wenaas-id">
+          <div class="card-preview light-bg">
+            <img src="../assets/logos/WenaasID_horizontal_black_screen.png" alt="Wenaas ID logo black">
+          </div>
+          <div class="card-body">
+            <div class="card-tags">
+              <span class="tag tag-type">Wenaas ID</span>
+              <span class="tag tag-color black">Black</span>
+            </div>
+            <h3 class="card-title">Wenaas ID — Monochrome</h3>
+            <p class="card-description">Black horizontal sub-brand logo for light backgrounds. Includes ® and divider.</p>
+            <div class="card-actions">
+              <a href="../assets/logos/WenaasID_horizontal_black_screen.png" download class="btn btn-primary">Download PNG</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="logo-card" data-type="wenaas-id">
+          <div class="card-preview dark-bg">
+            <img src="../assets/logos/WenaasID_horizontal_white_screen.png" alt="Wenaas ID logo white">
+          </div>
+          <div class="card-body">
+            <div class="card-tags">
+              <span class="tag tag-type">Wenaas ID</span>
+              <span class="tag tag-color white">White</span>
+            </div>
+            <h3 class="card-title">Wenaas ID — Inverted</h3>
+            <p class="card-description">White horizontal sub-brand logo for dark backgrounds. Includes ® and divider.</p>
+            <div class="card-actions">
+              <a href="../assets/logos/WenaasID_horizontal_white_screen.png" download class="btn btn-primary">Download PNG</a>
             </div>
           </div>
         </article>
